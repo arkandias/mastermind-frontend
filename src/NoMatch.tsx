@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
-import { Section } from "src/common/Section";
+import * as React from "react";
+import { Section } from "./common/Section";
 
 export const NoMatch = (): JSX.Element => (
   <Section title="Content Not Found">

@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { App } from "src/App";
-import { NoMatch } from "src/NoMatch";
-import { Welcome } from "src/Welcome";
-import { Create } from "src/create/Create";
-import { Game } from "src/game/Game";
-import { Games } from "src/games/Games";
+import { App } from "./App";
+import { Create } from "./create/Create";
+import { Game } from "./game/Game";
+import { Games } from "./games/Games";
+import { NoMatch } from "./NoMatch";
+import { Welcome } from "./Welcome";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

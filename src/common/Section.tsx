@@ -1,6 +1,6 @@
-import { SnackError } from "./SnackError";
 import { Box, Stack, StackProps, Typography } from "@mui/material";
 import * as React from "react";
+import { SnackError } from "./SnackError";
 
 export type SectionProps<C extends React.ElementType> = Partial<
   StackProps<C, { component?: C }>

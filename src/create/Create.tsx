@@ -1,20 +1,21 @@
-import { LoadingButton } from "@mui/lab";
+import LoadingButton from "@mui/lab/LoadingButton";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import * as React from "react";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Section } from "src/common/Section";
-import { axiosClient } from "src/common/axios-config";
-import { TextFieldParam } from "src/create/TextFieldParam";
-import { GameParamType, CLASSIC_PARAMS } from "src/create/gameParams";
+import { axiosClient } from "../common/axios-config";
+import { Section } from "../common/Section";
+import { CLASSIC_PARAMS, GameParamType } from "./gameParams";
+import { TextFieldParam } from "./TextFieldParam";
 
 export const Create = (): JSX.Element => {
   const navigate = useNavigate();
-  const [gameType, setGameType] = useState<string>("");
-  const [gameParams, setGameParams] = useState<GameParamType[] | null>(null);
-  const [helpers, setHelpers] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [gameType, setGameType] = React.useState<string>("");
+  const [gameParams, setGameParams] = React.useState<GameParamType[] | null>(
+    null
+  );
+  const [helpers, setHelpers] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<Error | null>(null);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -39,7 +40,7 @@ export const Create = (): JSX.Element => {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     switch (gameType) {
       case "classic":
         setGameParams(CLASSIC_PARAMS);

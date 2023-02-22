@@ -9,7 +9,6 @@ import {
   MenuItem,
 } from "@mui/material";
 import * as React from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type GameDropdownMenuProps = {
@@ -21,7 +20,7 @@ export const GameDropdownMenu: (
   props: GameDropdownMenuProps
 ) => JSX.Element = ({ gameId, deleteGame }) => {
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);

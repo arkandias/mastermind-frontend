@@ -1,7 +1,7 @@
 import { Autocomplete, TextField, Typography } from "@mui/material";
 import { createFilterOptions } from "@mui/material/Autocomplete";
 import * as React from "react";
-import { ScoredLabelType } from "src/game/Game";
+import { ScoredLabelType } from "./Game";
 
 type QAFieldProps = {
   label: string;

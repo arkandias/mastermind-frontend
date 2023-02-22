@@ -1,7 +1,8 @@
-import { LoadingButton } from "@mui/lab";
-import { Subsection } from "src/common/Subsection";
-import { QADictType } from "src/game/Game";
-import { QAPaper } from "src/game/QAPaper";
+import LoadingButton from "@mui/lab/LoadingButton";
+import * as React from "react";
+import { Subsection } from "../common/Subsection";
+import { QADictType } from "./Game";
+import { QAPaper } from "./QAPaper";
 
 type QAndAProps = {
   qAndA: QADictType;

@@ -1,9 +1,9 @@
 import { ListItem, Typography } from "@mui/material";
 import * as React from "react";
 import { FixedSizeList } from "react-window";
-import { BoxedCircularProgress } from "src/common/BoxedCircularProgress";
-import { Subsection } from "src/common/Subsection";
-import { ScoredLabelType } from "src/game/Game";
+import { BoxedCircularProgress } from "../common/BoxedCircularProgress";
+import { Subsection } from "../common/Subsection";
+import { ScoredLabelType } from "./Game";
 
 type SolutionsProps = {
   bestSolutions: ScoredLabelType[] | null;

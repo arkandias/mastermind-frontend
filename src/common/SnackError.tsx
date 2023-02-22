@@ -13,18 +13,17 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import * as React from "react";
-import { useEffect, useState } from "react";
 
 type SnackErrorProps = {
   error: Error;
 };
 
 export const SnackError = ({ error }: SnackErrorProps): JSX.Element => {
-  const [openSnack, setOpenSnack] = useState<boolean>(false);
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const [openTooltip, setOpenTooltip] = useState<boolean>(false);
+  const [openSnack, setOpenSnack] = React.useState<boolean>(false);
+  const [openDialog, setOpenDialog] = React.useState<boolean>(false);
+  const [openTooltip, setOpenTooltip] = React.useState<boolean>(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (error) setOpenSnack(true);
   }, [error]);
 

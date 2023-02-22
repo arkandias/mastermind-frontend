@@ -1,6 +1,7 @@
 import DeleteRoundedIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { Box, IconButton, Paper, Stack, Typography } from "@mui/material";
+import * as React from "react";
 
 type QAPaperProps = {
   question: string;

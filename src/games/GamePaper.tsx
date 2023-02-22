@@ -1,6 +1,7 @@
 import { Paper, Stack, Typography } from "@mui/material";
-import { GameDetails } from "src/games/GameDetails";
-import { GameDropdownMenu } from "src/games/GameDropdownMenu";
+import * as React from "react";
+import { GameDetails } from "./GameDetails";
+import { GameDropdownMenu } from "./GameDropdownMenu";
 
 type GamePaperProps = {
   gameId: number;

@@ -1,17 +1,16 @@
 import { Button, Typography } from "@mui/material";
 import { AxiosResponse } from "axios";
 import * as React from "react";
-import { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { BoxedCircularProgress } from "src/common/BoxedCircularProgress";
-import { Section } from "src/common/Section";
-import { axiosClient } from "src/common/axios-config";
+import { axiosClient } from "./common/axios-config";
+import { BoxedCircularProgress } from "./common/BoxedCircularProgress";
+import { Section } from "./common/Section";
 
 export const Welcome = (): JSX.Element => {
-  const [welcome, setWelcome] = useState<string | null>(null);
-  const [error, setError] = useState<Error | null>(null);
+  const [welcome, setWelcome] = React.useState<string | null>(null);
+  const [error, setError] = React.useState<Error | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     axiosClient
       .get("/")
       .then((response: AxiosResponse<string>) => setWelcome(response.data))

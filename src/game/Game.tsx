@@ -1,12 +1,11 @@
 import * as React from "react";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BoxedCircularProgress } from "src/common/BoxedCircularProgress";
-import { Section } from "src/common/Section";
-import { axiosClient } from "src/common/axios-config";
-import { QAForm } from "src/game/QAForm";
-import { QAndA } from "src/game/QAndA";
-import { Solutions } from "src/game/Solutions";
+import { axiosClient } from "../common/axios-config";
+import { BoxedCircularProgress } from "../common/BoxedCircularProgress";
+import { Section } from "../common/Section";
+import { QAForm } from "./QAForm";
+import { QAndA } from "./QAndA";
+import { Solutions } from "./Solutions";
 
 type QAType = {
   question: string;
@@ -30,15 +29,15 @@ const fromList = (qaList: QAType[]): QADictType => {
 
 export const Game = (): JSX.Element => {
   const { gameId } = useParams();
-  const [qAndA, setQAndA] = useState<QADictType | null>(null);
-  const [bestQuestions, setBestQuestions] = useState<ScoredLabelType[] | null>(
-    null
-  );
-  const [bestSolutions, setBestSolutions] = useState<ScoredLabelType[] | null>(
-    null
-  );
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [qAndA, setQAndA] = React.useState<QADictType | null>(null);
+  const [bestQuestions, setBestQuestions] = React.useState<
+    ScoredLabelType[] | null
+  >(null);
+  const [bestSolutions, setBestSolutions] = React.useState<
+    ScoredLabelType[] | null
+  >(null);
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<Error | null>(null);
 
   const play = (question: string, answer: string): void => {
     setLoading(true);
@@ -74,7 +73,7 @@ export const Game = (): JSX.Element => {
       .finally(() => setLoading(false));
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     setLoading(true);
     axiosClient
       .get(`/games/${gameId}/questions`)
@@ -83,7 +82,7 @@ export const Game = (): JSX.Element => {
       .finally(() => setLoading(false));
   }, [gameId]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (qAndA === null) return;
     setLoading(true);
     axiosClient

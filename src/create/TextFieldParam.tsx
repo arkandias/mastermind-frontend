@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
-import { useState } from "react";
-import { GameParamType } from "src/create/gameParams";
+import * as React from "react";
+import { GameParamType } from "./gameParams";
 
 type TextFieldParamProps = {
   param: GameParamType;
@@ -11,7 +11,7 @@ export const TextFieldParam: (props: TextFieldParamProps) => JSX.Element = ({
   param,
   helpers,
 }) => {
-  const [value, setValue] = useState<string>("");
+  const [value, setValue] = React.useState<string>("");
 
   return (
     <TextField

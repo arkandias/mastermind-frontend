@@ -1,11 +1,10 @@
-import { LoadingButton } from "@mui/lab";
+import LoadingButton from "@mui/lab/LoadingButton";
 import * as React from "react";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Subsection } from "src/common/Subsection";
-import { axiosClient } from "src/common/axios-config";
-import { QADictType, ScoredLabelType } from "src/game/Game";
-import { QAField } from "src/game/QAField";
+import { axiosClient } from "../common/axios-config";
+import { Subsection } from "../common/Subsection";
+import { QADictType, ScoredLabelType } from "./Game";
+import { QAField } from "./QAField";
 
 type QAFormProps = {
   qAndA: QADictType;
@@ -21,17 +20,17 @@ export const QAForm: (props: QAFormProps) => JSX.Element = ({
   loading,
 }) => {
   const { gameId } = useParams();
-  const [bestAnswers, setBestAnswers] = useState<ScoredLabelType[] | null>(
-    null
-  );
-  const [question, setQuestion] = useState<ScoredLabelType | null>(null);
-  const [answer, setAnswer] = useState<ScoredLabelType | null>(null);
-  const [inputQuestion, setInputQuestion] = useState<string>("");
-  const [inputAnswer, setInputAnswer] = useState<string>("");
-  const [loadingA, setLoadingA] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [bestAnswers, setBestAnswers] = React.useState<
+    ScoredLabelType[] | null
+  >(null);
+  const [question, setQuestion] = React.useState<ScoredLabelType | null>(null);
+  const [answer, setAnswer] = React.useState<ScoredLabelType | null>(null);
+  const [inputQuestion, setInputQuestion] = React.useState<string>("");
+  const [inputAnswer, setInputAnswer] = React.useState<string>("");
+  const [loadingA, setLoadingA] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<Error | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setLoadingA(true);
     setAnswer(null);
     setInputAnswer("");
@@ -45,7 +44,7 @@ export const QAForm: (props: QAFormProps) => JSX.Element = ({
       .finally(() => setLoadingA(false));
   }, [gameId, question]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setQuestion(null);
     setAnswer(null);
     setInputQuestion("");

@@ -1,17 +1,12 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-
-const BASE_URL =
-  !process.env.NODE_ENV || process.env.NODE_ENV === "development"
-    ? "http://127.0.0.1:8000"
-    : "https://mmapi.arkandias.synology.me";
-const TIMEOUT = 120000;
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
+// BugFix: InternalAxiosRequestConfig instead of AxiosRequestConfig
 
 export const axiosClient = axios.create({
-  baseURL: BASE_URL,
-  timeout: TIMEOUT,
+  baseURL: import.meta.env.VITE_MM_BACKEND_URL,
+  timeout: import.meta.env.VITE_TIMEOUT,
 });
 
-const requestText = (config: AxiosRequestConfig): string =>
+const requestText = (config: InternalAxiosRequestConfig): string =>
   `Request ${config.method?.toUpperCase() ?? "GET"} on ${config.url}`;
 
 const responseText = (response: AxiosResponse): string =>
@@ -20,7 +15,7 @@ const responseText = (response: AxiosResponse): string =>
   }`;
 
 axiosClient.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config: InternalAxiosRequestConfig) => {
     console.log(requestText(config), config);
     return config;
   },

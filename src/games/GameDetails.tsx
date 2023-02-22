@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import * as React from "react";
 
 type GameDetailsProps = {
   gameType: string;

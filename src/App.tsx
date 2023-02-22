@@ -11,6 +11,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import * as React from "react";
 import { Link as RouterLink, Outlet } from "react-router-dom";
 
 export const App = (): JSX.Element => (

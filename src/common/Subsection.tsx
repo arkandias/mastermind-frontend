@@ -1,7 +1,7 @@
 import { Paper, Stack, Typography } from "@mui/material";
 import * as React from "react";
-import { SectionProps } from "src/common/Section";
-import { SnackError } from "src/common/SnackError";
+import { SectionProps } from "./Section";
+import { SnackError } from "./SnackError";
 
 export const Subsection: <C extends React.ElementType>(
   props: SectionProps<C>
