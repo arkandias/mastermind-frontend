@@ -18,7 +18,9 @@ type SnackErrorProps = {
   error: Error;
 };
 
-export const SnackError = ({ error }: SnackErrorProps): JSX.Element => {
+export const SnackError: (props: SnackErrorProps) => JSX.Element = ({
+  error,
+}) => {
   const [openSnack, setOpenSnack] = React.useState<boolean>(false);
   const [openDialog, setOpenDialog] = React.useState<boolean>(false);
   const [openTooltip, setOpenTooltip] = React.useState<boolean>(false);

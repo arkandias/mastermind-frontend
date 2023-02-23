@@ -15,8 +15,10 @@ type RenderSolutionProps = {
   style: React.CSSProperties;
 };
 
-const makeRenderSolutions =
-  (bestSolutions: ScoredLabelType[]): React.FC<RenderSolutionProps> =>
+const makeRenderSolutions: (
+  bestSolutions: ScoredLabelType[]
+) => (props: RenderSolutionProps) => JSX.Element =
+  (bestSolutions) =>
   ({ index, style }) => {
     const option = bestSolutions[index];
 
